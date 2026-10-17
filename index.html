@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Manikanta Nidadhavolu – Python Backend Developer</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,800&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f7f5f0;--surface:#fff;--ink:#251d5c;--soft:#605ea7;--cyan:#11c8d5;--pink:#fc79a4;--sage:#c6cdaa;--line:#e3e0d6;
+--disp:'Bricolage Grotesque','Arial Black',sans-serif;--body:'Lato',system-ui,sans-serif;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#15112e;--surface:#1f1a42;--ink:#f1eefc;--soft:#a9a7e6;--line:#342e63;--sage:#4a5040;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#15112e;--surface:#1f1a42;--ink:#f1eefc;--soft:#a9a7e6;--line:#342e63;--sage:#4a5040;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.6 var(--body)}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--cyan);outline-offset:3px}
+.wrap{max-width:1100px;margin:0 auto;padding:0 24px}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;justify-content:space-between;align-items:center;height:60px;gap:16px}
+nav b{font:800 20px var(--disp);letter-spacing:-.5px}
+nav ul{display:flex;gap:22px;list-style:none;margin:0;padding:0;font-size:14px}
+nav ul a{text-decoration:none}nav ul a:hover{text-decoration:underline}
+.btn{display:inline-block;background:var(--ink);color:var(--bg);font:700 14px/1.75 var(--body);padding:10px 26px;border-radius:42px;text-decoration:none;border:2px solid var(--ink)}
+.btn.alt{background:transparent;color:var(--ink)}
+.btn:hover{background:var(--pink);border-color:var(--pink);color:#251d5c}
+.hero{text-align:center;padding:72px 0 40px;overflow:hidden}
+h1{font:800 clamp(44px,9vw,96px)/.9 var(--disp);letter-spacing:-.03em;margin:0 auto 24px;max-width:12ch}
+.hero p{max-width:56ch;margin:0 auto 28px;font-size:18px;color:var(--soft)}
+.hero .cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.iso{height:330px;position:relative;margin-top:36px;perspective:1400px}
+.tile{position:absolute;width:210px;padding:18px;text-align:left;border-radius:20px;color:#251d5c;font-size:13px;line-height:1.35;
+transform:rotateX(55deg) rotateZ(-40deg);box-shadow:-1px 1px 0 rgba(37,29,92,.25),-6px 6px 0 rgba(37,29,92,.18),-14px 14px 28px rgba(37,29,92,.22);animation:float 6s ease-in-out infinite}
+.tile strong{display:block;font:800 30px/1 var(--disp);margin-bottom:6px}
+.t1{background:var(--cyan);left:calc(50% - 360px);top:70px}
+.t2{background:var(--pink);left:calc(50% - 105px);top:10px;animation-delay:-2s}
+.t3{background:#b9b7f0;left:calc(50% + 150px);top:80px;animation-delay:-4s}
+@keyframes float{50%{translate:0 -14px}}
+@media (prefers-reduced-motion:reduce){.tile{animation:none}html{scroll-behavior:auto}}
+section{padding:72px 0;border-top:1px solid var(--line)}
+h2{font:800 clamp(32px,5vw,52px)/1 var(--disp);letter-spacing:-.02em;margin:0 0 12px}
+.lead{color:var(--soft);max-width:60ch;margin:0 0 36px}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}
+.stat{background:var(--surface);border:1px solid var(--line);border-radius:24px;padding:24px}
+.stat b{font:800 38px/1 var(--disp);display:block;margin-bottom:6px}
+.stat:nth-child(1) b{color:var(--cyan)}.stat:nth-child(2) b{color:var(--pink)}.stat:nth-child(3) b{color:var(--soft)}
+.stat span{font-size:14px;color:var(--soft)}
+.job{display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px;margin-bottom:28px}
+.job h3{margin:0;font:800 24px var(--disp)}
+.job span{color:var(--soft)}
+.groups{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:24px;padding:26px}
+.card h4{margin:0 0 12px;font:800 20px var(--disp);padding-left:14px;border-left:6px solid var(--cyan)}
+.groups .card:nth-child(2) h4{border-color:var(--pink)}.groups .card:nth-child(3) h4{border-color:var(--soft)}.groups .card:nth-child(4) h4{border-color:var(--sage)}
+.card ul{margin:0;padding-left:18px;font-size:15px}.card li{margin-bottom:8px}
+.intern{margin-top:16px}
+.projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:16px}
+.proj{border-radius:42px 0 42px 0;padding:32px;color:#251d5c}
+.proj:nth-child(1){background:var(--cyan)}.proj:nth-child(2){background:var(--pink)}
+.proj h3{font:800 28px/1.05 var(--disp);margin:0 0 8px}
+.proj ul{padding-left:18px;margin:14px 0 18px;font-size:15px}.proj li{margin-bottom:6px}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:6px}
+.tags i{font-style:normal;font-size:12px;background:rgba(255,255,255,.55);padding:3px 10px;border-radius:20px}
+.proj .btn{background:#251d5c;color:#fff;border-color:#251d5c}
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.skills h4{margin:0 0 10px;font:800 18px var(--disp)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips span{border:1.5px solid var(--ink);border-radius:20px;padding:2px 12px;font-size:13px}
+.edu{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.edu h3{margin:0 0 4px;font:800 22px var(--disp)}
+.edu p{margin:0 0 8px;color:var(--soft)}
+.contact{text-align:center}
+.contact h2{font-size:clamp(40px,8vw,84px);margin-bottom:20px}
+footer{padding:28px 0;text-align:center;font-size:13px;color:var(--soft);border-top:1px solid var(--line)}
+@media(max-width:720px){nav ul{display:none}.iso{height:260px}.tile{width:150px;padding:12px;font-size:11px}.tile strong{font-size:22px}.t1{left:-30px;top:60px}.t2{left:calc(50% - 75px);top:10px}.t3{left:auto;right:-30px;top:70px}}
+.about{display:grid;grid-template-columns:1.5fr 1fr;gap:32px;align-items:start}
+.about p{margin:0 0 16px;max-width:60ch}
+.facts{margin:0}.facts dt{font:800 15px var(--disp);color:var(--soft)}.facts dd{margin:0 0 14px;font-size:16px}.facts dd:last-child{margin:0}
+#services .card p{margin:0;font-size:15px}
+@media(max-width:720px){.about{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<nav><div class="wrap"><b>Manikanta N.</b>
+<ul><li><a href="#about">About</a></li><li><a href="#work">Experience</a></li><li><a href="#projects">Projects</a></li><li><a href="#skills">Skills</a></li><li><a href="#education">Education</a></li></ul>
+<a class="btn" href="#contact">Get in touch</a></div></nav>
+
+<header class="hero"><div class="wrap">
+<h1>Backend systems for messy financial data</h1>
+<p>I’m Manikanta Nidadhavolu, a Python backend developer building OCR pipelines, LLM workflows and FastAPI services for international banks at PowerCred Technologies.</p>
+<div class="cta"><a class="btn" href="#projects">See my projects</a><a class="btn alt" href="mailto:manikantanidadhavolu@gmail.com">Email me</a></div>
+<div class="iso" aria-hidden="true">
+<div class="tile t1"><strong>1M+</strong>records processed every month</div>
+<div class="tile t2"><strong>4x</strong>faster with async GPT-4 workflows</div>
+<div class="tile t3"><strong>&lt;200ms</strong>API latency across 10k+ daily sessions</div>
+</div></div></header>
+
+<section id="about"><div class="wrap">
+<h2>About me</h2>
+<div class="about">
+<div><p>I’m a Python backend engineer with 1.7 years of experience building document-processing systems for fintech. My work covers OCR ingestion pipelines, LLM-based classification and FastAPI services that handle millions of bank transaction records.</p>
+<p>I like turning unreliable input, such as scanned statements, malformed dates and inconsistent formats, into data teams can trust. I also build the React dashboards that make that data easy to use.</p>
+<p>I work remotely with PowerCred Technologies, a Singapore-based fintech company, and I’m open to backend and full stack engineering roles.</p></div>
+<dl class="card facts"><dt>Role</dt><dd>Full Stack Developer</dd><dt>Company</dt><dd>PowerCred Technologies (remote)</dd><dt>Experience</dt><dd>1.7 years in fintech</dd><dt>Education</dt><dd>B.Tech in Information Technology</dd><dt>Looking for</dt><dd>Backend and full stack roles</dd></dl>
+</div></div></section>
+
+<section id="impact"><div class="wrap">
+<h2>Results at work</h2><p class="lead">What I’ve delivered in 1.7 years of building fintech document-processing systems.</p>
+<div class="stats">
+<div class="stat"><b>99.5%</b><span>success rate on bank transaction pipelines</span></div>
+<div class="stat"><b>94%</b><span>precision in transaction classification</span></div>
+<div class="stat"><b>95%</b><span>PDF tamper-detection accuracy over 100K+ documents</span></div>
+<div class="stat"><b>70%</b><span>less integration time with a standardization framework</span></div>
+</div></div></section>
+
+<section id="services"><div class="wrap">
+<h2>What I do</h2><p class="lead">The kinds of problems I can take on from start to finish.</p>
+<div class="groups">
+<div class="card"><h4>OCR and document pipelines</h4><p>Ingest scanned and unstructured files in 50+ formats, repair bad data and normalize it into one clean schema.</p></div>
+<div class="card"><h4>LLM and AI workflows</h4><p>Add GPT-4, Gemini or Groq to your product for classification, RAG chatbots and async batch processing.</p></div>
+<div class="card"><h4>API development</h4><p>Design fast, validated FastAPI services with Pydantic schemas, pagination and tests.</p></div>
+<div class="card"><h4>Fraud and validation</h4><p>Detect tampered PDFs and suspicious transactions with rule-based checks and fuzzy matching.</p></div>
+<div class="card"><h4>Cloud and security</h4><p>Migrate storage between GCP and AWS, and secure APIs with JWT, RBAC, sanitization and monitoring.</p></div>
+<div class="card"><h4>Dashboards</h4><p>Build React and Next.js frontends that turn backend data into charts, search and filters.</p></div>
+</div></div></section>
+
+<section id="work"><div class="wrap">
+<h2>Experience</h2>
+<div class="job"><h3>Full Stack Developer, PowerCred Technologies</h3><span>Singapore (Remote) · Mar 2025 – Present</span></div>
+<div class="groups">
+<div class="card"><h4>Core backend and data</h4><ul>
+<li>Built transaction pipelines for international banks that automate OCR ingestion at a 99.5% success rate.</li>
+<li>Wrote a parsing engine for merged fields, malformed dates and nested records, cutting manual correction by 60%.</li>
+<li>Designed adaptive architecture for 50+ unstructured formats and 1M+ records a month.</li>
+<li>Used regex reconstruction to recover 20% more usable data from low-quality scans.</li></ul></div>
+<div class="card"><h4>AI and fraud detection</h4><ul>
+<li>Built an asyncio and GPT-4 system that processes million-row datasets 4x faster.</li>
+<li>Improved classification to 94% precision with fuzzy matching and keyword extraction.</li>
+<li>Launched a Fraud Indicator Module for mirror transactions and balance deviations, surfacing 85% more suspicious activity.</li>
+<li>Validated PDF structure through metadata and object analysis, cutting false positives by 30%.</li></ul></div>
+<div class="card"><h4>APIs and cloud</h4><ul>
+<li>Shipped FastAPI endpoints with sub-200ms latency for 10k+ daily sessions.</li>
+<li>Migrated storage from GCP to AWS S3 with 100% data integrity and zero downtime.</li>
+<li>Secured 25+ APIs with JWT and RBAC across 6 roles.</li>
+<li>Added Pydantic schemas and better pagination, shrinking payloads by 35%.</li></ul></div>
+<div class="card"><h4>Product engineering</h4><ul>
+<li>Led 10+ React dashboards on 5+ data sources for 100+ users.</li>
+<li>Tuned data-fetching hooks, raising user engagement by 25%.</li>
+<li>Standardized UI components, cutting new-feature frontend time by 30%.</li>
+<li>Automated debugging workflows, saving 2 days per sprint.</li></ul></div>
+</div>
+<div class="card intern"><h4>Full Stack Developer Intern, Techplement</h4>
+<p style="margin:0 0 10px;color:var(--soft);font-size:14px">Maharashtra · Jun 2024 – Jul 2024</p><ul>
+<li>Co-developed Active Aura, a fitness tracker with 10+ modules and 200+ test users.</li>
+<li>Built a React dashboard for 200+ daily activities and designed a MongoDB schema for 500+ user profiles.</li>
+<li>Improved performance by 30% and made 100+ Git commits with a 5-person team.</li></ul></div>
+</div></section>
+
+<section id="projects"><div class="wrap">
+<h2>Projects</h2><p class="lead">Two full-stack builds that combine backend logic with LLMs.</p>
+<div class="projects">
+<article class="proj"><h3>InsureIQ</h3><p>Insurance document intelligence and claim risk assessment, from upload to risk score at 95% accuracy.</p>
+<ul><li>OCR and field extraction with PyMuPDF and an LLM, sorting documents into 8 categories.</li>
+<li>Rule-based risk engine that scores 0–100 across 4 levels and explains each factor.</li>
+<li>3-tier validation of fields, business rules and cross-document consistency.</li>
+<li>15+ REST endpoints, a dashboard with charts and search, and a Pytest suite.</li></ul>
+<div class="tags"><i>FastAPI</i><i>React</i><i>TypeScript</i><i>SQLite</i><i>PyMuPDF</i><i>Pytest</i></div>
+<p><a class="btn" href="https://github.com/manikantanidadhavolu">View on GitHub</a></p></article>
+<article class="proj"><h3>AI Recruitment Copilot</h3><p>A job-application assistant with 7+ features, from ATS scoring to recruiter outreach.</p>
+<ul><li>ATS engine with 5 factors, including semantic similarity and experience parsing.</li>
+<li>RAG career chatbot on Qdrant and Groq with 4 query routes.</li>
+<li>Generators for cover letters, interview prep and 30-day learning roadmaps.</li>
+<li>Bulk Gmail outreach with configurable delay and an 8+ endpoint API.</li></ul>
+<div class="tags"><i>FastAPI</i><i>Next.js</i><i>Qdrant</i><i>Groq</i><i>sentence-transformers</i></div>
+<p><a class="btn" href="https://github.com/manikantanidadhavolu">View on GitHub</a></p></article>
+</div></div></section>
+
+<section id="skills"><div class="wrap">
+<h2>Skills</h2><p class="lead">The tools I use to build and ship.</p>
+<div class="skills">
+<div class="card"><h4>Languages</h4><div class="chips"><span>Python</span><span>JavaScript</span><span>TypeScript</span><span>SQL</span></div></div>
+<div class="card"><h4>Backend</h4><div class="chips"><span>FastAPI</span><span>REST APIs</span><span>Microservices</span><span>Pydantic</span><span>Asyncio</span><span>JWT/RBAC</span><span>Pytest</span></div></div>
+<div class="card"><h4>AI and data</h4><div class="chips"><span>GPT-4</span><span>Gemini</span><span>Groq</span><span>Prompt engineering</span><span>RAG</span><span>Qdrant</span><span>OCR</span><span>ETL</span><span>Regex</span><span>Fuzzy matching</span></div></div>
+<div class="card"><h4>Frontend</h4><div class="chips"><span>React.js</span><span>Next.js</span><span>Angular</span><span>HTML</span><span>CSS</span></div></div>
+<div class="card"><h4>Cloud and DevOps</h4><div class="chips"><span>AWS S3</span><span>AWS Textract</span><span>GCP</span><span>Azure</span><span>Docker</span><span>CI/CD</span><span>Git</span></div></div>
+<div class="card"><h4>Databases</h4><div class="chips"><span>PostgreSQL</span><span>MongoDB</span><span>BigQuery</span><span>SQLite</span></div></div>
+</div></div></section>
+
+<section id="education"><div class="wrap">
+<h2>Education and certifications</h2><p class="lead">&nbsp;</p>
+<div class="edu">
+<div class="card"><h3>B.Tech in Information Technology</h3><p>SRKR Engineering College, Bhimavaram · Aug 2019 – Apr 2023 · CGPA 8.67/10</p>
+<div class="chips"><span>Data Structures</span><span>OOP</span><span>Databases</span><span>Operating Systems</span><span>Networks</span><span>Machine Learning</span></div></div>
+<div class="card"><h3>Certifications</h3><ul style="padding-left:18px;margin:0">
+<li>The Complete JavaScript Course 2025, Udemy</li><li>Cloud Computing, Coursera</li><li>Python Crash Course, Coursera</li></ul></div>
+</div></div></section>
+
+<section id="contact" class="contact"><div class="wrap">
+<h2>Let’s work together</h2><p class="lead" style="margin-inline:auto">I’m looking for backend and full stack engineering roles.</p>
+<div class="cta" style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+<a class="btn" href="mailto:manikantanidadhavolu@gmail.com">manikantanidadhavolu@gmail.com</a>
+<a class="btn alt" href="tel:+917396829004">+91 73968 29004</a>
+<a class="btn alt" href="https://linkedin.com/in/manikantanidadhavolu">LinkedIn</a></div>
+</div></section>
+<footer>© Manikanta Nidadhavolu. Design inspired by the Tokens Studio system.</footer>
+</body>
+</html>
